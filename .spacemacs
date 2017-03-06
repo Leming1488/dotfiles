@@ -31,6 +31,9 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     vimscript
+     yaml
+     ruby
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -50,9 +53,9 @@ values."
      themes-megapack
      theming
      ;; org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom)
      ;; spell-checking
      syntax-checking
      ;; version-control
@@ -290,6 +293,7 @@ values."
    dotspacemacs-whitespace-cleanup nil
    ))
 (defun my-setup-indent (n)
+  (setq-default tab-width 2)
   ;; java/c/c++
   (setq c-basic-offset n)
   ;; web development
