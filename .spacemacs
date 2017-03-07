@@ -313,6 +313,8 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  (require 'flycheck-flow)
+  (add-hook 'javascript-mode-hook 'flycheck-mode)
   (my-setup-indent 2) ; indent 2 spaces width
 )
 
@@ -326,7 +328,7 @@ you should place your code here."
   ;; Evil Numbers key-binding
   (define-key evil-normal-state-map (kbd "C-c +") 'evil-numbers/inc-at-pt)
   (define-key evil-visual-state-map (kbd "C-c +") 'evil-numbers/inc-at-pt)
-
+  (flycheck-add-next-checker 'javascript-eslint 'javascript-flow)
   (define-key evil-normal-state-map (kbd "C-c -") 'evil-numbers/dec-at-pt)
   (define-key evil-visual-state-map (kbd "C-c -") 'evil-numbers/dec-at-pt)
   )
